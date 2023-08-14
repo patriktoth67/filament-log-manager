@@ -2,15 +2,20 @@
 
 namespace FilipFonal\FilamentLogManager;
 
-use Filament\PluginServiceProvider;
 use FilipFonal\FilamentLogManager\Commands\FilamentLogManagerCommand;
 use FilipFonal\FilamentLogManager\Pages\Logs;
-use Spatie\LaravelPackageTools\Package;
 
-class FilamentLogManagerServiceProvider extends PluginServiceProvider
+use Spatie\LaravelPackageTools\{
+    Package,
+    PackageServiceProvider
+};
+
+class FilamentLogManagerServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'filament-log-manager';
+
     protected array $styles = [
-        'filament-log-manager-styles' => __DIR__.'/../resources/css/styles.css',
+        'filament-log-manager-styles' => __DIR__ . '/../resources/css/styles.css',
     ];
 
     public function configurePackage(Package $package): void
